@@ -564,7 +564,7 @@ public partial class FullscreenGrab : Window {
             }
 
             HandleTextFromOcr(grabbedText);
-            //WindowUtilities.CloseAllFullscreenGrabs();
+            WindowUtilities.CloseAllFullscreenGrabs();
         } else
             BackgroundBrush.Opacity = 0.2;
     }
