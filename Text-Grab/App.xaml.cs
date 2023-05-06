@@ -23,8 +23,7 @@ namespace Text_Grab;
 /// <summary>
 /// Interaction logic for App.xaml
 /// </summary>
-public partial class App : System.Windows.Application
-{
+public partial class App : System.Windows.Application {
     #region Properties
 
     public List<int> HotKeyIds { get; set; } = new();
@@ -34,12 +33,10 @@ public partial class App : System.Windows.Application
 
     #region Methods
 
-    public static void DefaultLaunch()
-    {
-        DefaultLaunchSetting defaultLaunchSetting = Enum.Parse<DefaultLaunchSetting>(Settings.Default.DefaultLaunch, true);
+    public static void DefaultLaunch() {
+        DefaultLaunchSetting defaultLaunchSetting = Enum.Parse<DefaultLaunchSetting>("Fullscreen", true);
 
-        switch (defaultLaunchSetting)
-        {
+        switch (defaultLaunchSetting) {
             case DefaultLaunchSetting.Fullscreen:
                 WindowUtilities.LaunchFullScreenGrab();
                 break;
@@ -61,17 +58,14 @@ public partial class App : System.Windows.Application
                 break;
         }
     }
-    public static void SetTheme(object? sender = null, EventArgs? e = null)
-    {
+    public static void SetTheme(object? sender = null, EventArgs? e = null) {
         bool gotTheme = Enum.TryParse<AppTheme>(Settings.Default.AppTheme.ToString(), true, out AppTheme currentAppTheme);
 
         if (!gotTheme)
             return;
 
-        try
-        {
-            switch (currentAppTheme)
-            {
+        try {
+            switch (currentAppTheme) {
                 case AppTheme.System:
                     if (SystemThemeUtility.IsLightTheme())
                         Theme.Apply(ThemeType.Light, WindowBackdropType.None);
@@ -88,20 +82,17 @@ public partial class App : System.Windows.Application
                     Theme.Apply(ThemeType.Dark, WindowBackdropType.None);
                     break;
             }
-        }
-        catch (Exception)
-        {
+        } catch (Exception) {
 #if DEBUG
             throw;
 #endif
         }
 
-        Color teal = (Color)ColorConverter.ConvertFromString("#308E98");
+        Color teal = (Color)ColorConverter.ConvertFromString("#7B68EE");
         Accent.Apply(teal);
     }
 
-    public void WatchTheme()
-    {
+    public void WatchTheme() {
         if (Registry.CurrentUser.OpenSubKey(SystemThemeUtility.themeKeyPath) is not RegistryKey key)
             return;
 
@@ -110,8 +101,7 @@ public partial class App : System.Windows.Application
         monitor.Start();
     }
 
-    private static async Task<bool> CheckForOcringFolder(string currentArgument)
-    {
+    private static async Task<bool> CheckForOcringFolder(string currentArgument) {
         if (!Directory.Exists(currentArgument))
             return false;
 
@@ -121,17 +111,13 @@ public partial class App : System.Windows.Application
         return true;
     }
 
-    private static async Task<bool> HandleStartupArgs(string[] args)
-    {
+    private static async Task<bool> HandleStartupArgs(string[] args) {
         string currentArgument = args[0];
 
-        if (currentArgument.Contains("ToastActivated"))
-        {
+        if (currentArgument.Contains("ToastActivated")) {
             Debug.WriteLine("Launched from toast");
             return true;
-        }
-        else if (currentArgument == "Settings")
-        {
+        } else if (currentArgument == "Settings") {
             SettingsWindow sw = new();
             sw.Show();
             return true;
@@ -139,8 +125,7 @@ public partial class App : System.Windows.Application
 
         bool isStandardMode = Enum.TryParse<DefaultLaunchSetting>(currentArgument, true, out DefaultLaunchSetting launchMode);
 
-        if (isStandardMode)
-        {
+        if (isStandardMode) {
             LaunchStandardMode(launchMode);
             return true;
         }
@@ -152,10 +137,8 @@ public partial class App : System.Windows.Application
         return await CheckForOcringFolder(currentArgument);
     }
 
-    private static void LaunchStandardMode(DefaultLaunchSetting launchMode)
-    {
-        switch (launchMode)
-        {
+    private static void LaunchStandardMode(DefaultLaunchSetting launchMode) {
+        switch (launchMode) {
             case DefaultLaunchSetting.EditText:
                 EditTextWindow manipulateTextWindow = new();
                 manipulateTextWindow.Show();
@@ -176,8 +159,7 @@ public partial class App : System.Windows.Application
         }
     }
 
-    private static void ShowAndSetFirstRun()
-    {
+    private static void ShowAndSetFirstRun() {
         FirstRunWindow frw = new();
         frw.Show();
 
@@ -185,8 +167,7 @@ public partial class App : System.Windows.Application
         Settings.Default.Save();
     }
 
-    private static bool TryToOpenFile(string possiblePath)
-    {
+    private static bool TryToOpenFile(string possiblePath) {
         if (!File.Exists(possiblePath))
             return false;
 
@@ -196,13 +177,11 @@ public partial class App : System.Windows.Application
         return true;
     }
 
-    private void appExit(object sender, ExitEventArgs e)
-    {
+    private void appExit(object sender, ExitEventArgs e) {
         TextGrabIcon?.Dispose();
     }
 
-    async void appStartup(object sender, StartupEventArgs e)
-    {
+    async void appStartup(object sender, StartupEventArgs e) {
         NumberOfRunningInstances = Process.GetProcessesByName("Text-Grab").Length;
         Current.DispatcherUnhandledException += CurrentDispatcherUnhandledException;
 
@@ -211,8 +190,7 @@ public partial class App : System.Windows.Application
         //弹出toast的窗体点击会走这一步
         //用于向应用程序注册 ToastNotificationManagerCompat 的 OnActivated 事件的代码。
         //当用户点击与应用程序关联的 Toast Notification 弹出窗口时，该事件将触发并执行 LaunchFromToast 方法。
-        ToastNotificationManagerCompat.OnActivated += toastArgs =>
-        {
+        ToastNotificationManagerCompat.OnActivated += toastArgs => {
             LaunchFromToast(toastArgs);
         };
 
@@ -223,16 +201,14 @@ public partial class App : System.Windows.Application
 
         WatchTheme();
 
-        if (handledArgument)
-        {
+        if (handledArgument) {
             // arguments were passed, so don't show firstRun dialog
             Settings.Default.FirstRun = false;
             Settings.Default.Save();
             return;
         }
 
-        if (Settings.Default.FirstRun)
-        {
+        if (Settings.Default.FirstRun) {
             Settings.Default.CorrectToLatin = LanguageUtilities.IsCurrentLanguageLatinBased();
             ShowAndSetFirstRun();
             return;
@@ -241,17 +217,14 @@ public partial class App : System.Windows.Application
         DefaultLaunch();
     }
 
-    private void CurrentDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-    {
+    private void CurrentDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e) {
         // unhandled exceptions thrown from UI thread
         Debug.WriteLine($"Unhandled exception: {e.Exception}");
         e.Handled = true;
     }
 
-    private bool HandleNotifyIcon()
-    {
-        if (Settings.Default.RunInTheBackground && NumberOfRunningInstances < 2)
-        {
+    private bool HandleNotifyIcon() {
+        if (Settings.Default.RunInTheBackground && NumberOfRunningInstances < 2) {
             NotifyIconUtilities.SetupNotifyIcon();
 
             if (Settings.Default.StartupOnLogin)
@@ -266,15 +239,13 @@ public partial class App : System.Windows.Application
     ///然后代码使用 Dispatcher 将操作分派到 UI 线程，以便在该线程上打开一个新窗口 EditTextWindow 并将其显示出来，传递所接收到的参数 argsInvoked 作为 EditTextWindow 的构造函数参数。
     /// </summary>
     /// <param name="toastArgs"></param>
-    private void LaunchFromToast(ToastNotificationActivatedEventArgsCompat toastArgs)
-    {
+    private void LaunchFromToast(ToastNotificationActivatedEventArgsCompat toastArgs) {
         string argsInvoked = toastArgs.Argument;
         if (String.IsNullOrWhiteSpace(argsInvoked))
             return;
 
         // Need to dispatch to UI thread if performing UI operations
-        Dispatcher.BeginInvoke((Action)(() =>
-        {
+        Dispatcher.BeginInvoke((Action)(() => {
             EditTextWindow mtw = new(argsInvoked);
             mtw.Show();
         }));

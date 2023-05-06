@@ -1,8 +1,8 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="SelectedBackgroundColor">#77008080</Color>
-    <Color x:Key="SelectedUnfocusedColor">Teal</Color>
-    <Color x:Key="MouseOverBackgroundColor">#33008080</Color>
+    <Color x:Key="SelectedBackgroundColor">#779370DB</Color>
+    <Color x:Key="SelectedUnfocusedColor">#9370DB</Color>
+    <Color x:Key="MouseOverBackgroundColor">#339370DB</Color>
 
     <Style TargetType="{x:Type GridViewColumnHeader}">
         <Setter Property="Template">
