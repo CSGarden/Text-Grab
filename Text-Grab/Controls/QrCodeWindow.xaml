@@ -11,7 +11,7 @@
     Height="450"
     mc:Ignorable="d">
     <Window.Resources>
-        <BitmapImage x:Key="TextGrabIcon" UriSource="/Text-Grab;component/Images/TealSelect40.png" />
+        <BitmapImage x:Key="TextGrabIcon" UriSource="/Text-Grab;component/Images/TealIcon.png" />
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
