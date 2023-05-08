@@ -47,13 +47,13 @@
             <JumpTask
                 Title="Settings"
                 Arguments="Settings"
-                Description="Open Text Grab Settings" />
+                Description="Open 小唐OCR识别 Settings" />
             <JumpTask
                 Title="Quick Lookup"
                 Arguments="QuickLookup"
                 Description="Quickly search through a simple, flexible, list of values" />
             <JumpTask
-                Title="Edit Text"
+                Title="小唐OCR识别"
                 Arguments="EditText"
                 Description="Open Text Edit Window" />
             <JumpTask

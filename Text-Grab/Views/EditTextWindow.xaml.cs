@@ -1192,7 +1192,7 @@ public partial class EditTextWindow : FluentWindow {
         if (dialog.ShowDialog() is true) {
             File.WriteAllText(dialog.FileName, fileText);
             OpenedFilePath = dialog.FileName;
-            Title = $"Edit Text | {OpenedFilePath.Split('\\').LastOrDefault()}";
+            Title = $"小唐OCR识别 | {OpenedFilePath.Split('\\').LastOrDefault()}";
         }
     }
 
@@ -1209,7 +1209,7 @@ public partial class EditTextWindow : FluentWindow {
             if (dialog.ShowDialog() is true) {
                 File.WriteAllText(dialog.FileName, fileText);
                 OpenedFilePath = dialog.FileName;
-                Title = $"Edit Text | {OpenedFilePath.Split('\\').LastOrDefault()}";
+                Title = $"小唐OCR识别 | {OpenedFilePath.Split('\\').LastOrDefault()}";
             }
         } else {
             File.WriteAllText(OpenedFilePath, fileText);
@@ -1456,7 +1456,7 @@ public partial class EditTextWindow : FluentWindow {
 
     private async Task TryToOpenTextFile(string pathOfFileToOpen, bool isMultipleFiles, StringBuilder stringBuilder) {
         if (!isMultipleFiles && string.IsNullOrWhiteSpace(PassedTextControl.Text))
-            Title = $"Edit Text | {Path.GetFileName(OpenedFilePath)}";
+            Title = $"小唐OCR识别 | {Path.GetFileName(OpenedFilePath)}";
 
         try {
             using StreamReader sr = File.OpenText(pathOfFileToOpen);

@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Text_Grab.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Text Grab QR Code"
+    Title="小唐OCR识别 QR Code"
     Width="400"
     Height="450"
     mc:Ignorable="d">

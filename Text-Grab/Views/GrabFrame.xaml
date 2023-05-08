@@ -116,7 +116,7 @@
                             IsChecked="True" />
                         <MenuItem
                             x:Name="AlwaysUpdateEtwCheckBox"
-                            Header="Auto Update Content in Edit Text Window"
+                            Header="Auto Update Content in 小唐OCR识别 Window"
                             IsCheckable="True"
                             IsChecked="True" />
                         <MenuItem
@@ -133,7 +133,7 @@
                         <MenuItem
                             Name="SettingsMenuItem"
                             Click="SettingsBTN_Click"
-                            Header="Text Grab Settings" />
+                            Header="小唐OCR识别 Settings" />
                         <MenuItem
                             Name="CloseMenuItem"
                             Click="OnCloseButtonClick"
@@ -191,7 +191,7 @@
                             IsChecked="{Binding IsChecked, ElementName=EditToggleButton, Mode=TwoWay}" />
                         <MenuItem
                             Click="EditTextBTN_Click"
-                            Header="Send results to an Edit Text Window"
+                            Header="Send results to an 小唐OCR识别 Window"
                             InputGestureText="E"
                             IsCheckable="True"
                             IsChecked="{Binding IsChecked, ElementName=EditTextToggleButton, Mode=TwoWay}" />
@@ -574,7 +574,7 @@
                             Click="SettingsBTN_Click"
                             IsSymbol="True"
                             SymbolText=""
-                            ToolTip="Open Text Grab Settings"
+                            ToolTip="Open 小唐OCR识别 Settings"
                             Visibility="Collapsed" />
                     </StackPanel>
 

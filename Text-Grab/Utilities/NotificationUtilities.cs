@@ -24,7 +24,7 @@ internal static class NotificationUtilities
         // build the toast XML
         var toast = new ToastContentBuilder()
             .AddArgument("text", encodedString)
-            .AddText("Text Grab")
+            .AddText("小唐OCR识别")
             .AddText(toastBody);
 
         int toastSizeInBytes = Encoding.UTF8.GetByteCount(toast.Content.GetContent());
@@ -55,7 +55,7 @@ internal static class NotificationUtilities
             // rebuild the toast XML
             toast = new ToastContentBuilder()
                 .AddArgument("text", encodedString)
-                .AddText("Text Grab")
+                .AddText("小唐OCR识别")
                 .AddText(toastBody);
         }
 

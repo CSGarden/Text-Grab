@@ -37,7 +37,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <ui:TitleBar
-            Title="Edit Text"
+            Title="小唐OCR识别"
             Height="32"
             Padding="8,2"
             Icon="{StaticResource TextGrabIcon}" />
@@ -113,7 +113,7 @@
                     VerticalAlignment="Center"
                     Checked="EditWindowToggleButton_Checked"
                     Style="{StaticResource ToggleSymbolButton}"
-                    ToolTip="(Ctrl + E) Send value to Edit Text Window"
+                    ToolTip="(Ctrl + E) Send value to 小唐OCR识别 Window"
                     Unchecked="EditWindowToggleButton_Checked">
                     <TextBlock Margin="4" FontFamily="Segoe MDL2 Assets">
                         
@@ -155,7 +155,7 @@
                         <MenuItem
                             x:Name="TextGrabSettingsMenuItem"
                             Click="TextGrabSettingsMenuItem_Click"
-                            Header="Text Grab Settings" />
+                            Header="小唐OCR识别 Settings" />
                     </MenuItem>
                 </Menu>
             </StackPanel>

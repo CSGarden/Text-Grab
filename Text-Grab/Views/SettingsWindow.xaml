@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:Text_Grab"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Text Grab Settings"
+    Title="小唐OCR识别 Settings"
     Width="660"
     Height="600"
     MinWidth="200"
@@ -39,7 +39,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ui:TitleBar
-            Title="Edit Text"
+            Title="小唐OCR识别"
             Height="32"
             Padding="8,2"
             Icon="{StaticResource TextGrabIcon}" />
@@ -72,7 +72,7 @@
                                 x:Name="AboutBTN"
                                 Grid.Column="2"
                                 Margin="0"
-                                ButtonText="About Text Grab"
+                                ButtonText="About 小唐OCR识别"
                                 Click="AboutBTN_Click"
                                 SymbolText="" />
                         </Grid>
@@ -82,7 +82,7 @@
                             Margin="0,16,0,4"
                             FontSize="16"
                             Style="{StaticResource TextHeader}"
-                            Text="Text Grab Theme" />
+                            Text="小唐OCR识别 Theme" />
                         <RadioButton
                             x:Name="SystemThemeRdBtn"
                             VerticalContentAlignment="Center"
@@ -116,7 +116,7 @@
                             Text="Show Toast" />
                         <ui:ToggleSwitch Name="ShowToastCheckBox">
                             <TextBlock Style="{StaticResource TextBodyNormal}">
-                                Show Toast when text is copied. Opens window to display and edit text.
+                                Show Toast when text is copied. Opens window to display and 小唐OCR识别.
                             </TextBlock>
                         </ui:ToggleSwitch>
 
@@ -147,7 +147,7 @@
                             VerticalContentAlignment="Center"
                             GroupName="DefaultLaunch">
                             <TextBlock Margin="0,-10,0,0" Style="{StaticResource TextBodyNormal}">
-                                Edit Text Window
+                                小唐OCR识别 Window
                             </TextBlock>
                         </RadioButton>
                         <RadioButton
@@ -187,11 +187,11 @@
                             <StackPanel>
                                 <ui:ToggleSwitch Name="RunInBackgroundChkBx" Margin="0,12,0,0">
                                     <TextBlock Style="{StaticResource TextBodyNormal}">
-                                        Run Text Grab in the background and enable hotkeys
+                                        Run 小唐OCR识别 in the background and enable hotkeys
                                     </TextBlock>
                                 </ui:ToggleSwitch>
                                 <TextBlock Margin="24,0,0,0" Style="{StaticResource TextBodyNormal}">
-                                    <Run FontStyle="Italic">For this setting to take effect close all instances of Text Grab.</Run>
+                                    <Run FontStyle="Italic">For this setting to take effect close all instances of 小唐OCR识别.</Run>
                                 </TextBlock>
                                 <ui:ToggleSwitch x:Name="GlobalHotkeysCheckbox" Margin="0,12,0,0">
                                     <TextBlock Style="{StaticResource TextBodyNormal}">
@@ -259,7 +259,7 @@
                                     <TextBlock
                                         Margin="8,0,0,0"
                                         Style="{StaticResource TextBodyNormal}"
-                                        Text="new Edit Text Window" />
+                                        Text="new 小唐OCR识别 Window" />
                                 </StackPanel>
                                 <StackPanel Margin="24,8,20,0" Orientation="Horizontal">
                                     <controls:ShortcutControl />
@@ -286,7 +286,7 @@
                         </Border>
                         <ui:ToggleSwitch Name="StartupOnLoginCheckBox" Margin="0,12,0,0">
                             <TextBlock x:Name="StartupTextBlock" Style="{StaticResource TextBodyNormal}">
-                                Auto start Text Grab when you login
+                                Auto start 小唐OCR识别 when you login
                             </TextBlock>
                         </ui:ToggleSwitch>
                         <Border
@@ -364,9 +364,9 @@
                                 <TextBlock
                                     Margin="0,12,0,0"
                                     Style="{StaticResource TextHeader}"
-                                    Text="How does Text Grab use Tesseract?" />
+                                    Text="How does 小唐OCR识别 use Tesseract?" />
                                 <TextBlock Style="{StaticResource TextBodyNormal}">
-                                    Text Grab will capture the image then pass it to the Tesseract EXE. Then Tesseract returns the result of the OCR to Text Grab and error occurs according to user settings.<LineBreak />
+                                    小唐OCR识别 will capture the image then pass it to the Tesseract EXE. Then Tesseract returns the result of the OCR to 小唐OCR识别 and error occurs according to user settings.<LineBreak />
                                     Does not use Tesseract: Table Recogintion and the Grab Frame.</TextBlock>
                                 <TextBlock
                                     Margin="0,12,0,0"
@@ -385,7 +385,7 @@
                                     Text="Why should I use Tesseract?" />
                                 <TextBlock Style="{StaticResource TextBodyNormal}">
                                     Tesseract is known for having the best OCR capabilities. While the Windows OCR is convenient and fast, it has not been updated in years and Microsoft has no plans to update it.<LineBreak />
-                                    Feel free to try Tesseract and hopefully it will work well for you. Ideally Text Grab can bring together the convenience with the power of Tesseract.</TextBlock>
+                                    Feel free to try Tesseract and hopefully it will work well for you. Ideally 小唐OCR识别 can bring together the convenience with the power of Tesseract.</TextBlock>
                                 <TextBlock HorizontalAlignment="Right">
                                     <Hyperlink Click="TessInfoCloseHypBtn_Click">Done</Hyperlink>
                                 </TextBlock>

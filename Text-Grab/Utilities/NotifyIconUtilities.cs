@@ -19,7 +19,7 @@ public static class NotifyIconUtilities
         }
 
         NotifyIcon icon = new();
-        icon.Text = "Text Grab";
+        icon.Text = "小唐OCR识别";
         icon.Icon = new Icon(System.Windows.Application.GetResourceStream(new Uri("/TealSelect.ico", UriKind.Relative)).Stream);
         icon.Visible = true;
 
@@ -33,7 +33,7 @@ public static class NotifyIconUtilities
         fullscreenGrabItem.Click += (s, e) => { WindowUtilities.LaunchFullScreenGrab(); };
         ToolStripMenuItem? grabFrameItem = new("&Grab Frame");
         grabFrameItem.Click += (s, e) => { GrabFrame gf = new(); gf.Show(); };
-        ToolStripMenuItem? editTextWindowItem = new("&Edit Text Window");
+        ToolStripMenuItem? editTextWindowItem = new("&小唐OCR识别 Window");
         editTextWindowItem.Click += (s, e) => { EditTextWindow etw = new(); etw.Show(); };
 
         ToolStripMenuItem? exitItem = new("&Close");

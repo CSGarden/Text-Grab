@@ -34,7 +34,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <ui:TitleBar
-            Title="Edit Text"
+            Title="小唐OCR识别"
             Grid.ColumnSpan="3"
             Height="32"
             Padding="8,2"

@@ -47,7 +47,7 @@ public static class LanguageUtilities
 
         if (possibleOCRLangs.Count == 0)
         {
-            System.Windows.MessageBox.Show("No possible OCR languages are installed.", "Text Grab");
+            System.Windows.MessageBox.Show("No possible OCR languages are installed.", "Ð¡ÌÆOCRÊ¶±ð");
             throw new Exception("No possible OCR languages are installed");
         }
 

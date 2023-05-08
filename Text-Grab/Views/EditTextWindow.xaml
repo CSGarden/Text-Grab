@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:Text_Grab"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Edit Text"
+    Title="小唐OCR识别"
     Width="680"
     Height="450"
     MinWidth="200"
@@ -125,7 +125,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <ui:TitleBar
-            Title="Edit Text"
+            Title="小唐OCR识别"
             Height="32"
             Padding="8,2"
             Icon="{StaticResource TextGrabIcon}" />
@@ -161,7 +161,7 @@
                 <MenuItem
                     x:Name="SettingsMenuItem"
                     Click="SettingsMenuItem_Click"
-                    Header="Text Grab Sett_ings..." />
+                    Header="小唐OCR识别 Sett_ings..." />
                 <MenuItem
                     x:Name="CloseMenuItem"
                     Click="CloseMenuItem_Click"
