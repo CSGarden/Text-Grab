@@ -228,6 +228,20 @@
                     Click="AddRemoveAtMenuItem_Click"
                     Header="_Add, Remove, Limit..." />
             </MenuItem>
+            <!--  菜单枚举 提供了选择、查找替换、文本编辑等功能  -->
+            <!--
+                FindAndReplaceMenuItem 选项允许用户在打开的窗口中使用查找和替换功能，它与 Click 事件 FindAndReplaceMenuItem_Click 相关联。
+                SelectWordMenuItem 允许用户通过单击或快捷键 Ctrl+W 来选择所选单词。
+                SelectLineMenuItem 允许用户通过单击或快捷键 Ctrl+L 来选择行。
+                应用程序命令 SelectAll 允许用户选择所有文本。
+                MoveLineUpMenuItem 选项允许用户通过单击或快捷键 Alt+Up 将选择的行上移一行。
+                MoveLineDownMenuItem 选项允许用户通过单击或快捷键 Alt+Down 将选择的行下移一行。
+                SplitLineBeforeSelectionMI 选项允许用户通过执行将所选内容拆分为多个行的操作来划分行。
+                IsolateSelectionMI 选项允许用户通过选择文本并执行隔离所选内容的操作来隔离所选文本。
+                DeleteAllSelectionMI 选项允许用户删除所有选定文本的实例。
+                DeleteAllSelectionPatternMI 选项允许用户使用简单的模式删除所有选定文本实例。
+                InsertSelectionOnEveryLineMI 选项允许用户通过将所选内容插入每行的操作来插入选择内容。
+            -->
             <MenuItem Header="_Selection">
                 <MenuItem
                     x:Name="FindAndReplaceMenuItem"

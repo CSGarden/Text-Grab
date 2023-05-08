@@ -16,6 +16,7 @@
     KeyUp="Window_KeyUp"
     Loaded="FindAndReplacedLoaded"
     mc:Ignorable="d">
+    <!--  对应的命令绑定对应的方法  -->
     <Window.CommandBindings>
         <CommandBinding
             CanExecute="TextSearch_CanExecute"
@@ -71,6 +72,7 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
+            <!--  展开按钮  -->
             <ToggleButton
                 x:Name="MoreOptionsToggleButton"
                 Width="32"
@@ -82,7 +84,7 @@
                 Foreground="White"
                 IsChecked="True"
                 Style="{DynamicResource ToggleSymbolButton}" />
-
+            <!--  需要找的内容输入框 keyup事件作用：在某个元素（如按钮、文本框等）上松开一个按键时触发的事件  -->
             <TextBox
                 x:Name="FindTextBox"
                 Grid.Column="1"
@@ -100,7 +102,7 @@
                 ButtonText="Find"
                 Command="{x:Static local:FindAndReplaceWindow.TextSearchCmd}"
                 SymbolText="" />
-
+            <!--  输入需要替换的文本  -->
             <TextBox
                 x:Name="ReplaceTextBox"
                 Grid.Row="1"
@@ -109,6 +111,7 @@
                 VerticalContentAlignment="Center"
                 FontFamily="Segoe UI"
                 Visibility="Visible" />
+            <!--  执行替换的按钮  -->
             <local:CollapsibleButton
                 x:Name="ReplaceButton"
                 Grid.Row="1"
@@ -120,7 +123,12 @@
                 Command="{x:Static local:FindAndReplaceWindow.ReplaceOneCmd}"
                 SymbolText=""
                 Visibility="Visible" />
-
+            <!--  表示是否使用精准匹配  -->
+            <!--
+                当点击时，触发 OptionsChangedRefresh 事件，即“选项更改导致刷新”。
+                当 ExactMatchCheckBox 被选中时，“Matches”只会包含那些与 Pattern 完全匹配的字符串标记, 区分大小写或不区分大小写，取决于所选的文本查找选项。
+                如果未选中，则仅对 Pattern 进行基本的正则转义，但它将被视为部分匹配，因此可以包含其他字符而不仅仅是确切的 Pattern 字符串。这通常是默认设置。
+            -->
             <StackPanel
                 x:Name="MoreOptionsHozStack"
                 Grid.Row="2"
@@ -138,10 +146,11 @@
                     VerticalContentAlignment="Center"
                     Checked="OptionsChangedRefresh">
                     <TextBlock Style="{StaticResource TextBodyNormal}">
+                        <!--  完全匹配  -->
                         Match Exactly
                     </TextBlock>
                 </ui:ToggleSwitch>
-
+                <!--  删除操作的按钮  -->
                 <local:CollapsibleButton
                     x:Name="DeleteAllMatches"
                     Width="140"
@@ -151,7 +160,7 @@
                     ButtonText="Delete All"
                     Command="{x:Static local:FindAndReplaceWindow.DeleteAllCmd}"
                     SymbolText="" />
-
+                <!--  替换所有的按钮  -->
                 <local:CollapsibleButton
                     x:Name="ReplaceAllButton"
                     Grid.Row="2"
@@ -164,6 +173,12 @@
                     Command="{x:Static local:FindAndReplaceWindow.ReplaceAllCmd}"
                     SymbolText="" />
             </StackPanel>
+            <!--  用于启用或禁用正则表达式搜索选项。  -->
+            <!--
+                如果选中 UsePaternCheckBox，则将搜索模式视为正则表达式模式。这个选择框允许用户自定义匹配规则和搜索操作。
+                如果未选中，则使用普通的字符串搜索方式， Pattern 将仅表示文字参数，而不是作为具有特殊含义的正则表达式字符解释。
+                在开启正则表达式搜索时，需要注意输入的内容是否符合正则表达式规范，否则可能会导致搜索无法进行或结果不如预期。
+            -->
             <StackPanel
                 x:Name="EvenMoreOptionsHozStack"
                 Grid.Row="3"
@@ -180,10 +195,11 @@
                     VerticalAlignment="Center"
                     VerticalContentAlignment="Center">
                     <TextBlock Style="{StaticResource TextBodyNormal}">
+                        <!--  使用正则表达式搜索  -->
                         Search With Regex
                     </TextBlock>
                 </ui:ToggleSwitch>
-
+                <!--  提取正则表达式模式并将其插入到搜索框中  -->
                 <local:CollapsibleButton
                     x:Name="ExtractSimplePattern"
                     Width="140"
@@ -192,7 +208,7 @@
                     ButtonText="Extract Regex"
                     Command="{x:Static local:FindAndReplaceWindow.ExtractPatternCmd}"
                     SymbolText="" />
-
+                <!--  执行将匹配到的内容复制到新窗口并进行编辑。  -->
                 <local:CollapsibleButton
                     x:Name="MatchesToEditWindow"
                     Width="130"
@@ -212,7 +228,7 @@
             FontSize="18"
             Foreground="{StaticResource Teal}"
             Text="Matches" />
-
+        <!--  显示搜索结果  -->
         <Border Grid.Row="3" Background="{DynamicResource SolidBackgroundFillColorBaseAltBrush}">
             <ListView
                 x:Name="ResultsListView"

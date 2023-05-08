@@ -756,7 +756,9 @@ public partial class EditTextWindow : FluentWindow {
         if (cancellationTokenForDirOCR is not null)
             cancellationTokenForDirOCR.Cancel();
     }
-
+    /// <summary>
+    /// 启动“查找和替换”窗口<see cref="FindAndReplaceWindow"/>
+    /// </summary>
     private void LaunchFindAndReplace() {
         FindAndReplaceWindow farw = WindowUtilities.OpenOrActivateWindow<FindAndReplaceWindow>();
 
