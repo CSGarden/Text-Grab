@@ -379,7 +379,8 @@
                     Command="{x:Static local:EditTextWindow.MakeQrCodeCmd}"
                     Header="Make QR Code" />
             </MenuItem>
-            <MenuItem Header="_Help">
+            <!--  不需要  -->
+            <!--<MenuItem Header="_Help">
                 <MenuItem
                     x:Name="ContactMenuItem"
                     Click="ContactMenuItem_Click"
@@ -396,7 +397,7 @@
                     x:Name="AboutMenuItem"
                     Click="AboutMenuItem_Click"
                     Header="_About" />
-            </MenuItem>
+            </MenuItem>-->
         </Menu>
         <TextBox
             x:Name="PassedTextControl"
